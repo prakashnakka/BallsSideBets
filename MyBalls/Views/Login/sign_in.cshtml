@@ -1,0 +1,52 @@
+﻿@using  BL.Models
+@model UserAccount
+@{
+    ViewData["Title"] = "sign_in";
+}
+
+<h1>Sign In</h1>
+
+<div class="form-validation">
+    @using (Html.BeginForm("Sign_In", "users", FormMethod.Post, new { @class = "form-sign-in" }))
+    {
+    @Html.AntiForgeryToken()
+    @if (this.TempData["Error"] != null)
+        {
+    <div class="row">
+        <div class="col-xl-8">
+            <span>@this.TempData["Error"]</span>
+        </div>
+    </div>
+        }
+
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="form-group row">
+                @Html.LabelFor(m => m.Email, new { @class = "col-form-label" })
+                <div class="col-lg-6">
+                    @Html.TextBoxFor(m => m.Email, new { Name = "Email", id = "Email", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="form-group row">
+                @Html.LabelFor(m => m.Pwd, "Password", new { @class = "col-form-label" })
+                <div class="col-lg-6">
+                    @Html.PasswordFor(m => m.Pwd, new { Name = "Pwd", id = "Password", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="form-group row">
+                <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Sign In" /> &nbsp;&nbsp;
+                <a href="~/users/sign_up" class="btn btn-primary mb-2">Create Account</a>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,98 @@
+﻿@using  BL.Models
+@model PlayerPick
+@{
+    ViewData["Title"] = "Add/Update Picks";
+}
+
+<h1>Add/Update Picks</h1>
+
+<div class="form-validation basic-form">
+    @if (this.TempData["IsAdded"] != null)
+    {
+        <div>@this.TempData["IsAdded"]</div>
+    }
+    @if (this.TempData["error"] != null)
+    {
+        <div>@this.TempData["error"]</div>
+    }
+
+    @using (Html.BeginForm("add", "picks", FormMethod.Post, new { @class = "form-add-picks" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.TeamPick, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.TeamPick, new { id = "TeamPick", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.CombinedScore, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.CombinedScore, new { id = "CombinedScore", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.FirstInningWickets, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.FirstInningWickets, new { id = "FirstInningWickets", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.SecondInningWickets, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.SecondInningWickets, new { id = "SecondInningWickets", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.OversChase, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.OversChase, new { id = "OversChase", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.HighestScore, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.HighestScore, new { id = "HighestScore", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.HighestWickets, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.HighestWickets, new { id = "HighestWickets", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.Total4s, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.Total4s, new { id = "Total4s", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.Total6s, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.Total6s, new { id = "Total6s", @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Picks">
+    }
+</div>
+

@@ -1,0 +1,142 @@
+﻿@using BL.Models
+@model ResultPick
+@{
+    ViewData["Title"] = "Add Actuals";
+}
+
+<h1>Add Actuals</h1>
+
+@using (Html.BeginForm("targetScore", "admin", FormMethod.Post, new { @class = "form-target-score" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Target Score</div>
+            <div class="input-group">
+                <input class="form-control" id="targetScore" name="targetScore" value="@Model.CombinedScore" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Target Score">
+}
+
+@using (Html.BeginForm("firstInningWickets", "admin", FormMethod.Post, new { @class = "form-first-wickets" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">First Inning Wickets</div>
+            <div class="input-group">
+                <input class="form-control" id="firstInningWickets" name="firstInningWickets" value="@Model.FirstInningWickets" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add First Inning Wickers">
+}
+
+@using (Html.BeginForm("secondInningWickets", "admin", FormMethod.Post, new { @class = "form-second-wickets" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Second Inning Wickets</div>
+            <div class="input-group">
+                <input class="form-control" id="secondInningWickets" name="secondInningWickets" value="@Model.SecondInningWickets" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Second Inning Wickets">
+}
+
+@using (Html.BeginForm("oversChase", "admin", FormMethod.Post, new { @class = "form-overs-chase" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Overs to chase</div>
+            <div class="input-group">
+                <input class="form-control" id="oversChase" name="oversChase" value="@Model.OversChase" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Overs To Chase">
+}
+
+@using (Html.BeginForm("highestScore", "admin", FormMethod.Post, new { @class = "form-highest-score" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Highest Score</div>
+            <div class="input-group">
+                <input class="form-control" id="highestScore" name="highestScore" value="@Model.HighestScore" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Highest Score">
+}
+
+@using (Html.BeginForm("highestWickets", "admin", FormMethod.Post, new { @class = "form-highest-wickets" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Highest Wickets</div>
+            <div class="input-group">
+                <input class="form-control" id="highestWickets" name="highestWickets" value="@Model.HighestWickets" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Highest Wickets">
+}
+
+@using (Html.BeginForm("total4s", "admin", FormMethod.Post, new { @class = "form-total-4s" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Total 4's</div>
+            <div class="input-group">
+                <input class="form-control" id="total4s" name="total4s" value="@Model.Total4s" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Total 4's">
+}
+
+@using (Html.BeginForm("total6s", "admin", FormMethod.Post, new { @class = "form-total-6s" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Total 6's</div>
+            <div class="input-group">
+                <input class="form-control" id="total6s" name="total6s" value="@Model.Total6s" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Total 6's">
+}
+
+@using (Html.BeginForm("teampick", "admin", FormMethod.Post, new { @class = "form-team-pick" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Team Pick</div>
+            <div class="input-group">
+                <input class="form-control" id="teamPick" name="teamPick" value="@Model.TeamPick" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Team Pick">
+}

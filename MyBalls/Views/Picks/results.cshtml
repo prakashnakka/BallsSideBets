@@ -1,0 +1,79 @@
+﻿@using BL.Models
+@model ICollection<ResultRow>
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1>Results</h1>
+
+<div class="bootstrap-data-table-panel">
+    <div style="overflow-x:auto;">
+        @if (Model.Count() > 0)
+        {
+
+            <table id="row-select" class="display table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Team Pick</th>
+                        <th>Target Score</th>
+                        <th>First Inning Wickets</th>
+                        <th>Chasing Wickets</th>
+                        <th>Overs to chase</th>
+                        <th>Highest Score</th>
+                        <th>Highest Wickets</th>
+                        <th>Total 4's</th>
+                        <th>Total 6's</th>
+                        <th>Total Points</th>
+                    </tr>
+                </thead>
+                @{
+                    var counter = 0;
+                    var bgColor = "";
+                }
+                <tbody class="purple">
+                    @foreach (ResultRow item in Model)
+                    {
+                        switch (counter)
+                        {
+                            case 0:
+                                bgColor = "#F7D000";
+                                break;
+                            case 1:
+                                bgColor = "#C0C0C0";
+                                break;
+                            case 2:
+                                bgColor = "#CD7F32";
+                                break;
+                            default:
+                                bgColor = "#FFF";
+                                break;
+                        }
+
+                        @if (this.ViewBag.UserId == item.UserId)
+                        {
+                            bgColor = "#F2CCD1";
+                        }
+
+                        <tr style="background-color: @bgColor;">
+                            <td>@item.DisplayName</td>
+                            <td>@item.TeamPick</td>
+                            <td>@item.CombinedScore</td>
+                            <td>@item.FirstInningWickets</td>
+                            <td>@item.SecondInningWickets</td>
+                            <td>@item.OversChase</td>
+                            <td>@item.HighestScore</td>
+                            <td>@item.HighestWickets</td>
+                            <td>@item.Total4s</td>
+                            <td>@item.Total6s</td>
+                            <td>@item.TotalPoints</td>
+                        </tr>
+
+                        counter = counter + 1;
+                    }
+                </tbody>
+            </table>
+        }
+
+    </div>
+</div>

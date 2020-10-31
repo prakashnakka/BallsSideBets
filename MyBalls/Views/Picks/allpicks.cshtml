@@ -1,0 +1,94 @@
+﻿@using BL.Models
+@model ICollection<LeaderBoardPick>
+@{
+    ViewData["Title"] = "All Picks";
+}
+
+<h1>Picks</h1>
+
+@if (this.ViewBag.ErrorMessage != null)
+{
+<div>@this.ViewBag.ErrorMessage</div>
+}
+
+<div class="bootstrap-data-table-panel">
+    <div style="overflow-x:auto;">
+        @if (Model.Count() > 0)
+        {
+
+        <table id="row-select" class="display table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Team Pick</th>
+                    <th>Target Score</th>
+                    <th>First Inning Wickets</th>
+                    <th>Chasing Wickets</th>
+                    <th>Overs to chase</th>
+                    <th>Highest Score</th>
+                    <th>Highest Wickets</th>
+                    <th>Total 4's</th>
+                    <th>Total 6's</th>
+                    <th>Add Date</th>
+                </tr>
+            </thead>
+
+            <tbody class="">
+                @{
+                    var resultPick = (ResultPick)this.TempData["ResultPicks"];
+
+                                <tr style="background-color: #CDF1EA;">
+                                    <td>Actual Picks</td>
+                                    <td>@resultPick.TeamPick</td>
+                                    <td>@resultPick.CombinedScore</td>
+                                    <td>@resultPick.FirstInningWickets</td>
+                                    <td>@resultPick.SecondInningWickets</td>
+                                    <td>@resultPick.OversChase</td>
+                                    <td>@resultPick.HighestScore</td>
+                                    <td>@resultPick.HighestWickets</td>
+                                    <td>@resultPick.Total4s</td>
+                                    <td>@resultPick.Total6s</td>
+                                    <td></td>
+                                </tr>
+                }
+                @foreach (LeaderBoardPick item in Model)
+                    {
+
+                @if (this.ViewBag.UserId == item.UserId){
+                <tr style="background-color: #F2CCD1;">
+                    <td>@item.DisplayName</td>
+                    <td>@item.TeamPick</td>
+                    <td>@item.CombinedScore</td>
+                    <td>@item.FirstInningWickets</td>
+                    <td>@item.SecondInningWickets</td>
+                    <td>@item.OversChase</td>
+                    <td>@item.HighestScore</td>
+                    <td>@item.HighestWickets</td>
+                    <td>@item.Total4s</td>
+                    <td>@item.Total6s</td>
+                    <td>@item.AddDt</td>
+                </tr>
+                }
+                else{
+            <tr>
+                <td>@item.DisplayName</td>
+                <td>@item.TeamPick</td>
+                <td>@item.CombinedScore</td>
+                <td>@item.FirstInningWickets</td>
+                <td>@item.SecondInningWickets</td>
+                <td>@item.OversChase</td>
+                <td>@item.HighestScore</td>
+                <td>@item.HighestWickets</td>
+                <td>@item.Total4s</td>
+                <td>@item.Total6s</td>
+                <td>@item.AddDt</td>
+            </tr>
+                            }
+                    
+                    }
+            </tbody>
+        </table>
+        }
+
+    </div>
+</div>
