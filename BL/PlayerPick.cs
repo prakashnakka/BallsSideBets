@@ -26,7 +26,7 @@ namespace BL.Models
         public int Total4s { get; set; }
         [Required(ErrorMessage = "Total 6s both innings is required"), DisplayName("Total 6's (both innings combined)")]
         public int Total6s { get; set; }
-        [Required(ErrorMessage = "Picking the winning team is required"), DisplayName("Team winner 1 - RCB or 2 - SRH")]
+        [Required(ErrorMessage = "Picking the winning team is required"), DisplayName("Team winner 1 - KKR or 2 - RRH")]
         public int TeamPick { get; set; }
         public int UserId { get; set; }
         public DateTime AddDt { get; set; }

@@ -101,8 +101,8 @@ namespace MyBalls.Controllers
         public async Task<IActionResult> History()
         {
             var myPicks = await _pickRepository.GetAuditByUser(this.UserId);
-            this.ViewBag.Now = Convert.ToDateTime(_config["GameTime"]).AddHours(Convert.ToInt32(_config["OffsetHours"]));
-            this.ViewBag.gt = DateTime.Now;
+            //this.ViewBag.Now = Convert.ToDateTime(_config["GameTime"]).AddHours(Convert.ToInt32(_config["OffsetHours"]));
+            //this.ViewBag.gt = DateTime.Now;
             return View(myPicks);
         }
 
