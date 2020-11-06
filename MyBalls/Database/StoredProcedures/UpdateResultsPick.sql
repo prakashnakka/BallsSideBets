@@ -74,6 +74,11 @@ BEGIN
 		set @fieldName = 'Total6s';
 	END
 
+	if (@categoryId = 9)
+	BEGIN
+		set @fieldName = 'MaxSingleOverScore';
+	END
+
 	--update results 
 	--set 
 	--	firstinningwickets = @intVal

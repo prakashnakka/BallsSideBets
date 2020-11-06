@@ -28,6 +28,8 @@ namespace BL.Models
         public int Total6s { get; set; }
         [Required(ErrorMessage = "Picking the winning team is required"), DisplayName("Team winner 1 - KKR or 2 - RRH")]
         public int TeamPick { get; set; }
+        [Required(ErrorMessage = "Max Single Over Score is required"), DisplayName("Max Single Over Score")]
+        public int MaxSingleOverScore { get; set; }
         public int UserId { get; set; }
         public DateTime AddDt { get; set; }
         public DateTime UpdateDt { get; set; }

@@ -18,6 +18,7 @@ CREATE TABLE [dbo].[results](
 	[Total4s] [int] NULL,
 	[Total6s] [int] NULL,
 	[TeamPick] [int] NULL,
+	[MaxSingleOverScore] [int] NULL,
 	[gameId] [int] NOT NULL,
  CONSTRAINT [PK_results] PRIMARY KEY CLUSTERED 
 (

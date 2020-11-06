@@ -41,7 +41,8 @@ BEGIN
 		Total4s,
 		Total6s,
 		TeamPick,
-		(CombinedScore + FirstInningWickets + SecondInningWickets + HighestScore + HighestWickets + OversChase + Total4s + Total6s + TeamPick) as TotalPoints
+		MaxSingleOverScore,
+		(CombinedScore + FirstInningWickets + SecondInningWickets + HighestScore + HighestWickets + OversChase + Total4s + Total6s + TeamPick + MaxSingleOverScore) as TotalPoints
 	from points p 
 	inner join useraccount ua on p.userId = ua.userId
 	order by TotalPoints desc, displayname;

@@ -106,6 +106,7 @@ namespace MyBalls.DataAccess
         OversChase,
         Total4s,
         Total6s,
-        TeamPick
+        TeamPick,
+        MaxSingleOverScore
     }
 }

@@ -19,6 +19,7 @@ CREATE TABLE [dbo].[playerpicks_audit](
 	[Total4s] [int] NULL,
 	[Total6s] [int] NULL,
 	[TeamPick] [int] NULL,
+	[MaxSingleOverScore] [int] NULL,
 	[userId] [nvarchar](50) NULL,
 	[addDt] [datetime] NULL,
  CONSTRAINT [PK_playerpicks_audit] PRIMARY KEY CLUSTERED 

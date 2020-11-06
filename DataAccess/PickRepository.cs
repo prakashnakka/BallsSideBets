@@ -51,6 +51,7 @@ namespace MyBalls.DataAccess
             p.Add("@Total4s", pick.Total4s);
             p.Add("@Total6s", pick.Total6s);
             p.Add("@TeamPick", pick.TeamPick);
+            p.Add("@MaxSingleOverScore", pick.MaxSingleOverScore);
             p.Add("@userId", pick.UserId);
 
             try

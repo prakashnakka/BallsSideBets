@@ -8,6 +8,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 CREATE TABLE [dbo].[points](
 	[CombinedScore] [int] NULL,
 	[FirstInningWickets] [int] NULL,
@@ -18,11 +19,12 @@ CREATE TABLE [dbo].[points](
 	[Total4s] [int] NULL,
 	[Total6s] [int] NULL,
 	[TeamPick] [int] NULL,
+	[MaxSingleOverScore] [int] NULL,
 	[userId] [int] NOT NULL,
  CONSTRAINT [PK_points] PRIMARY KEY CLUSTERED 
 (
 	[userId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
@@ -52,5 +54,9 @@ GO
 
 ALTER TABLE [dbo].[points] ADD  CONSTRAINT [DF_points_TeamPick]  DEFAULT ((0)) FOR [TeamPick]
 GO
+
+ALTER TABLE [dbo].[points] ADD  CONSTRAINT [DF_points_MaxSingleOverScore]  DEFAULT ((0)) FOR [MaxSingleOverScore]
+GO
+
 
 

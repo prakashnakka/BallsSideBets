@@ -119,5 +119,16 @@ namespace MyBalls.Controllers
             var resultPicks = await _adminRepository.Get(_gameId);
             return View("AddResults", resultPicks);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> maxSingleOverScore()
+        {
+            var maxSingleOverScore = Convert.ToInt32(Request.Form["maxSingleOverScore"]);
+
+            var isSuccess = await _adminRepository.Update(CategoryType.MaxSingleOverScore, _gameId, maxSingleOverScore);
+            var resultPicks = await _adminRepository.Get(_gameId);
+            return View("AddResults", resultPicks);
+        }
+        
     }
 }

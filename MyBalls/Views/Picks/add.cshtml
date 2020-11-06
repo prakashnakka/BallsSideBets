@@ -91,6 +91,14 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                @Html.LabelFor(s => s.MaxSingleOverScore, new { @class = "col-form-label" })
+                <div class="input-group">
+                    @Html.TextBoxFor(s => s.MaxSingleOverScore, new { id = "MaxSingleOverScore", @class = "form-control" })
+                </div>
+            </div>
+        </div>
 
         <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Picks">
     }

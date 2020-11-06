@@ -18,6 +18,7 @@ CREATE TABLE [dbo].[playerpicks](
 	[Total4s] [int] NULL,
 	[Total6s] [int] NULL,
 	[TeamPick] [int] NULL,
+	[MaxSingleOverScore] [int] NULL,
 	[userId] [nvarchar](50) NOT NULL,
 	[addDt] [datetime] NULL,
 	[updateDt] [datetime] NULL,

@@ -12,6 +12,7 @@ INSERT INTO playerpicks_audit(
 		total4s, 
 		total6s, 
 		Teampick,
+		MaxSingleOverScore,
 		userId,
 		addDt)
     SELECT
@@ -24,6 +25,7 @@ INSERT INTO playerpicks_audit(
 		total4s, 
 		total6s, 
 		Teampick,
+		MaxSingleOverScore,
 		userId,
 		GetDate()
         FROM inserted

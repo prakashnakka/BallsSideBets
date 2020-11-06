@@ -140,3 +140,18 @@
 
     <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Team Pick">
 }
+
+@using (Html.BeginForm("maxSingleOverScore", "admin", FormMethod.Post, new { @class = "form-max-single-over-score" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="col-form-label">Max Single Over Score</div>
+            <div class="input-group">
+                <input class="form-control" id="maxSingleOverScore" name="maxSingleOverScore" value="@Model.MaxSingleOverScore" />
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" id="reset-submit1" class="btn btn-primary mb-2" value="Add Max Single Over Score">
+}

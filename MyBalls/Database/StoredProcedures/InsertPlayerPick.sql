@@ -30,6 +30,7 @@ CREATE PROCEDURE [dbo].[InsertPlayerPick]
 	@Total4s int,
 	@Total6s int,
 	@TeamPick int,
+	@MaxSingleOverScore int,
     @userId int
 AS
 BEGIN
@@ -56,6 +57,7 @@ BEGIN
 			[Total4s], 
 			[Total6s], 
 			[TeamPick], 
+			[MaxSingleOverScore],
 			[userId], 
 			[addDt]) 
 		values(
@@ -68,6 +70,7 @@ BEGIN
 			@Total4s, 
 			@Total6s, 
 			@TeamPick, 
+			@MaxSingleOverScore,
 			@userId, 
 			GetDate())
 
