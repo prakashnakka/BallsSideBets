@@ -93,7 +93,7 @@ namespace MyBalls.Controllers
             //if (isLoginVerified)
             //    return RedirectToAction(actionName: "schools", controllerName: "user");
             //else
-            //    return RedirectToAction(actionName: "sign_in", controllerName: "users");
+            //    return RedirectToAction(actionName: "login", controllerName: "users");
 
             return RedirectToAction("add", "picks");
         }

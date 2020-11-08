@@ -23,11 +23,11 @@ namespace BL.Models
 
     public class ChangePassword
     {
-        [DataType(DataType.Password), DisplayName("Current Password")]
-        public string CurrentPassword { get; set; }
-        [DataType(DataType.Password), MinLength(5), DisplayName("New Password")]
+        [Required(ErrorMessage = "Email is required"), DisplayName("Email")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "New password is required"), DataType(DataType.Password), MinLength(5), DisplayName("New Password")]
         public string NewPassword { get; set; }
-        [DataType(DataType.Password), MinLength(5)]
+        [Required(ErrorMessage = "Confirm password is required"), DataType(DataType.Password), MinLength(5)]
         [Compare("NewPassword"), DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set; }
     }

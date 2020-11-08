@@ -15,6 +15,7 @@ namespace MyBalls.DataAccess
 
         Task<UserAccount> Insert(UserAccount ua);
         Task<bool> ExistingEmail(string email, int? userId = null);
+        Task<bool> UpdatePassword(ChangePassword changePasswordUser);
 
     }
 
@@ -78,6 +79,29 @@ namespace MyBalls.DataAccess
             }
 
             return await Task.FromResult<bool>((affectedRows == 1) ? true : false);
+        }
+
+        public async Task<bool> UpdatePassword(ChangePassword updatePassword)
+        {
+            var isSuccess = false;
+
+            using (IDbConnection conn = Connection)
+            {
+                var sQuery = $"update useraccount set pwd = '{updatePassword.NewPassword}' where Email = '{updatePassword.Email}'";
+
+                
+                try
+                {
+                    await conn.ExecuteAsync(sQuery);
+                    isSuccess = true;
+                }
+                catch
+                {
+                    isSuccess = false;
+                }
+            }
+
+            return await Task.FromResult<bool>(isSuccess);
         }
     }
 }

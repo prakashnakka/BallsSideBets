@@ -1,10 +1,12 @@
 ﻿@using BL.Models
 @model ICollection<PlayerPick>
 @{
-    ViewData["Title"] = "Pick History";
+    ViewData["Title"] = "My Pick History";
 }
 
-    <h1>My History</h1> 
+@section Title{
+    My History
+}
 
 <div class="bootstrap-data-table-panel">
     <div style="overflow-x:auto;">
@@ -31,19 +33,19 @@
                 <tbody class="purple">
                     @foreach (PlayerPick item in Model)
                     {
-                    <tr>
-                        <td>@item.TeamPick</td>
-                        <td>@item.CombinedScore</td>
-                        <td>@item.FirstInningWickets</td>
-                        <td>@item.SecondInningWickets</td>
-                        <td>@item.OversChase</td>
-                        <td>@item.HighestScore</td>
-                        <td>@item.HighestWickets</td>
-                        <td>@item.Total4s</td>
-                        <td>@item.Total6s</td>
-                        <td>@item.MaxSingleOverScore</td>
-                        <td>@item.AddDt</td>
-                    </tr>
+                        <tr>
+                            <td>@item.TeamPick</td>
+                            <td>@item.CombinedScore</td>
+                            <td>@item.FirstInningWickets</td>
+                            <td>@item.SecondInningWickets</td>
+                            <td>@item.OversChase</td>
+                            <td>@item.HighestScore</td>
+                            <td>@item.HighestWickets</td>
+                            <td>@item.Total4s</td>
+                            <td>@item.Total6s</td>
+                            <td>@item.MaxSingleOverScore</td>
+                            <td>@item.AddDt</td>
+                        </tr>
                     }
                 </tbody>
             </table>

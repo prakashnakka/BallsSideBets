@@ -4,14 +4,17 @@
     ViewData["Title"] = "Add Actuals";
 }
 
-<h1>Add Actuals</h1>
+@section Title
+{
+    Add Actuals
+}
 
 @using (Html.BeginForm("targetScore", "admin", FormMethod.Post, new { @class = "form-target-score" }))
 {
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Target Score</div>
+            <div class="col-form-label required">Target Score</div>
             <div class="input-group">
                 <input class="form-control" id="targetScore" name="targetScore" value="@Model.CombinedScore" />
             </div>
@@ -26,7 +29,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">First Inning Wickets</div>
+            <div class="col-form-label required">First Inning Wickets</div>
             <div class="input-group">
                 <input class="form-control" id="firstInningWickets" name="firstInningWickets" value="@Model.FirstInningWickets" />
             </div>
@@ -41,7 +44,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Second Inning Wickets</div>
+            <div class="col-form-label required">Second Inning Wickets</div>
             <div class="input-group">
                 <input class="form-control" id="secondInningWickets" name="secondInningWickets" value="@Model.SecondInningWickets" />
             </div>
@@ -56,7 +59,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Overs to chase</div>
+            <div class="col-form-label required">Overs to chase</div>
             <div class="input-group">
                 <input class="form-control" id="oversChase" name="oversChase" value="@Model.OversChase" />
             </div>
@@ -71,7 +74,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Highest Score</div>
+            <div class="col-form-label required">Highest Score</div>
             <div class="input-group">
                 <input class="form-control" id="highestScore" name="highestScore" value="@Model.HighestScore" />
             </div>
@@ -86,7 +89,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Highest Wickets</div>
+            <div class="col-form-label required">Highest Wickets</div>
             <div class="input-group">
                 <input class="form-control" id="highestWickets" name="highestWickets" value="@Model.HighestWickets" />
             </div>
@@ -101,7 +104,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Total 4's</div>
+            <div class="col-form-label required">Total 4's</div>
             <div class="input-group">
                 <input class="form-control" id="total4s" name="total4s" value="@Model.Total4s" />
             </div>
@@ -116,7 +119,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Total 6's</div>
+            <div class="col-form-label required">Total 6's</div>
             <div class="input-group">
                 <input class="form-control" id="total6s" name="total6s" value="@Model.Total6s" />
             </div>
@@ -131,7 +134,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Team Pick</div>
+            <div class="col-form-label required">Team Pick</div>
             <div class="input-group">
                 <input class="form-control" id="teamPick" name="teamPick" value="@Model.TeamPick" />
             </div>
@@ -146,7 +149,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="form-group col-md-12">
-            <div class="col-form-label">Max Single Over Score</div>
+            <div class="col-form-label required">Max Single Over Score</div>
             <div class="input-group">
                 <input class="form-control" id="maxSingleOverScore" name="maxSingleOverScore" value="@Model.MaxSingleOverScore" />
             </div>

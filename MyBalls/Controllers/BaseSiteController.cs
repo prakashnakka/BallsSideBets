@@ -88,7 +88,7 @@ namespace MyBalls.Controllers
 
             HasGameStarted = GameStarted();
 
-            this.ViewBag.GameStarted = HasGameStarted;
+            this.ViewBag.HasGameStarted = HasGameStarted;
             this.ViewBag.ErrorMessage = Request.Cookies["Error"] == null ? null : Request.Cookies["Error"].ToString();
             this.ViewBag.UserId = UserId;
         }

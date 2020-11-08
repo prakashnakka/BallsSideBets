@@ -26,7 +26,7 @@ namespace BL.Models
         public int Total4s { get; set; }
         [Required(ErrorMessage = "Total 6s both innings is required"), DisplayName("Total 6's (both innings combined)")]
         public int Total6s { get; set; }
-        [Required(ErrorMessage = "Picking the winning team is required"), DisplayName("Team winner 1 - KKR or 2 - RRH")]
+        [Required(ErrorMessage = "Picking the winning team is required"), DisplayName("Team winner 1 - MI or 2 - TBD")]
         public int TeamPick { get; set; }
         [Required(ErrorMessage = "Max Single Over Score is required"), DisplayName("Max Single Over Score")]
         public int MaxSingleOverScore { get; set; }

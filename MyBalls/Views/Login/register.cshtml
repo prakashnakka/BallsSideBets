@@ -1,0 +1,33 @@
+﻿@using  BL.Models
+@model UserAccount
+
+@{
+    Layout = "_loginlayout";
+    ViewData["Title"] = "Register";
+}
+
+@section Title  {
+    Register Now
+}
+
+    <div class="form-validation">
+        @using (Html.BeginForm("register", "users", FormMethod.Post, new { @class = "form-sign-Up" }))
+        {
+            @Html.AntiForgeryToken()
+            @if (this.TempData["Error"] != null)
+            {
+                <div class="alert alert-danger">
+                    <span>@this.TempData["Error"]</span>
+                </div>
+            }
+
+            @Html.TextBoxFor(m => m.DisplayName, new { Name = "DisplayName", id = "DisplayName", @class = "border p-3 w-100 my-2", @placeholder = "Display Name *" })
+            @Html.TextBoxFor(m => m.Email, new { Name = "Email", id = "Email", @class = "border p-3 w-100 my-2", @placeholder = "Email *" })
+            @Html.PasswordFor(m => m.Pwd, new { Name = "Pwd", id = "Password", @class = "border p-3 w-100 my-2", @placeholder = "Password *" })
+
+
+            <button type="submit" class="d-block py-3 px-5 bg-primary text-white border-0 rounded font-weight-bold mt-3">Register</button>
+            <a class="mt-3 d-block  text-primary" href="~/users/login">Login Now</a>
+
+        }
+    </div>

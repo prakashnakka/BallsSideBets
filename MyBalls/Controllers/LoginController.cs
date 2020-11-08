@@ -18,8 +18,8 @@ namespace MyBalls.Controllers
             _userRepository = userRepository;
         }
 
-        [Route("users/sign_in")]
-        public IActionResult sign_in()
+        [Route("users/login")]
+        public IActionResult login()
         {
             //this.ViewBag.CurrUrl = CurrentUrl;
             if (IsLoggedIn)
@@ -31,8 +31,8 @@ namespace MyBalls.Controllers
         }
 
         [HttpPost]
-        [Route("users/sign_in")]
-        public async Task<IActionResult> sign_in(UserAccount myAccount)
+        [Route("users/login")]
+        public async Task<IActionResult> login(UserAccount myAccount)
         {
             bool isLoginVerified = false;
             if (ModelState.IsValid)
@@ -65,13 +65,13 @@ namespace MyBalls.Controllers
                 //return Redirect(this.CurrentUrl);
             }
             else
-                return RedirectToAction(actionName: "sign_in", controllerName: "users");
+                return RedirectToAction(actionName: "login", controllerName: "users");
 
             //return RedirectToAction("index", "home");
         }
 
-        [Route("Users/sign_up")]
-        public IActionResult sign_up()
+        [Route("Users/register")]
+        public IActionResult register()
         {
             //this.ViewBag.CurrUrl = CurrentUrl;
             if (IsLoggedIn)
@@ -83,8 +83,8 @@ namespace MyBalls.Controllers
         }
 
         [HttpPost]
-        [Route("users/sign_up")]
-        public async Task<IActionResult> sign_up(UserAccount newUser)
+        [Route("users/register")]
+        public async Task<IActionResult> register(UserAccount newUser)
         {
             var isLoginVerified = false;
             if (!ModelState.IsValid)
@@ -102,7 +102,7 @@ namespace MyBalls.Controllers
             }
             else
             {
-                this.TempData["error"] = "Email already exists.";
+                this.TempData["error"] = "Email already registered. Check again or try logging in now?";
             }
 
             if (isLoginVerified)
@@ -110,7 +110,7 @@ namespace MyBalls.Controllers
                 return RedirectToAction(actionName: "add", controllerName: "picks");
             }
             else
-                return RedirectToAction(actionName: "sign_up", controllerName: "users");
+                return RedirectToAction(actionName: "register", controllerName: "users");
         }
 
         [Route("Users/Sign_out")]
@@ -124,6 +124,51 @@ namespace MyBalls.Controllers
 
             return RedirectToAction(actionName: "index", controllerName: "home");
             //return Redirect(this.CurrentUrl);
+        }
+
+        [Route("Users/reset")]
+        public IActionResult Reset()
+        {
+            if (!this.IsLoggedIn)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction(actionName: "index", controllerName: "home");
+            }
+        }
+
+        [HttpPost]
+        [Route("users/reset")]
+        public async Task<IActionResult> reset(ChangePassword updateUser)
+        {
+            var isUpdated = false;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var isExistingEmail = await _userRepository.ExistingEmail(updateUser.Email, null);
+            if (isExistingEmail)
+            {
+                var user = await _userRepository.UpdatePassword(updateUser);
+
+                //_cookieRepository.SetLoginCookies(user);
+                isUpdated = true;
+            }
+            else
+            {
+                this.TempData["error"] = "Email not found. Please enter email you registered with.";
+            }
+
+            if (isUpdated)
+            {
+                this.TempData["Error"] = "Password updated. Please login with new password";
+                return RedirectToAction(actionName: "login", controllerName: "users");
+            }
+            else
+                return RedirectToAction(actionName: "reset", controllerName: "users");
         }
     }
 }
