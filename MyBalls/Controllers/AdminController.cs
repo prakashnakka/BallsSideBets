@@ -30,6 +30,12 @@ namespace MyBalls.Controllers
             return View(resultPicks);
         }
 
+        public async Task<IActionResult> PlayerManagement()
+        {
+            var playerList = await _adminRepository.GetPlayers();
+            return View(playerList);
+        }
+
         [HttpPost]
         public async Task<IActionResult> targetScore()
         {

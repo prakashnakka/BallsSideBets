@@ -16,6 +16,7 @@ namespace MyBalls.DataAccess
         Task<bool> Update(CategoryType columnName, int gameId, int? intVal = null, double? floatVal = null);
         Task<ResultPick> Get(int gameId);
         Task<bool> UpdateTeamPick(int gameId, int intVal);
+        Task<ICollection<PlayerList>> GetPlayers();
     }
 
     public class AdminRepository : IAdminRepository
@@ -93,6 +94,18 @@ namespace MyBalls.DataAccess
             }
 
             return await Task.FromResult(isSuccess);
+        }
+
+        public async Task<ICollection<PlayerList>> GetPlayers()
+        {
+            using (IDbConnection conn = Connection)
+            {
+                var sQuery = $"select displayname, email, dbo.fn_playerpicked(userId) as PicksMade from useraccount";
+
+                var result = await conn.QueryAsync<PlayerList>(sQuery);
+
+                return result.ToList();
+            }
         }
     }
 

@@ -1,0 +1,35 @@
+﻿@using  BL.Models
+@model ICollection<PlayerList>
+@{
+    ViewData["Title"] = "Player Management";
+    Layout = "_Layout";
+}
+
+@section Title {
+    Player Management
+}
+
+<table id="row-select" class="display table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Picked?</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (PlayerList item in Model)
+        {
+            var bgColor = "#fff";
+            if (!item.PicksMade)
+                bgColor = "#e7bfc6";
+
+            <tr style="background-color: @bgColor;">
+                <td>@item.DisplayName</td>
+                <td>@item.Email</td>
+                <td>@item.PicksMade</td>
+            </tr>
+        }
+    </tbody>
+</table>

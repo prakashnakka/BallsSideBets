@@ -52,4 +52,11 @@ namespace BL.Models
     {
         public int GameId { get; set; }
     }
+
+    public class PlayerList
+    {
+        public string DisplayName { get; set; }
+        public string Email { get; set; }
+        public bool PicksMade { get; set; }
+    }
 }
